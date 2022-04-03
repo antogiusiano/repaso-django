@@ -9,12 +9,10 @@
         <a href={% url 'cerrajeros' %}>Volver</a>
     </p>
 
-    <form action="" method="post">
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
-        </table>
-        <button>Crear</button>
-    </form>
+    <p>
+        <li>Nombre: {{object.nombre}}</li>
+        <li>Apellido: {{object.apellido}}</li>
+        <li>Esta desempleado: {{object.desempleado}}</li>
+    </p>
 
 {% endblock 'body_block' %}

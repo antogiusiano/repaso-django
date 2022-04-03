@@ -22,8 +22,13 @@
             <div class="container">
                 <a class="navbar-brand" href={% url 'index' %}>Index</a>
                 <a class="navbar-brand" href={% url 'plantilla' %}>Plantilla</a>
-                <a class="navbar-brand" href={% url 'crear_cerrajero' %}>Crear Cerrajero</a>
-                <a class="navbar-brand" href={% url 'lista_cerrajeros' %}>Lista Cerrajeros</a>
+                <a class="navbar-brand" href={% url 'cerrajeros' %}>Cerrajeros</a>
+                {% if request.user.is_authenticated %}
+                    <a class="navbar-brand" href={% url 'logout' %}>Logout</a>
+                {% else %}
+                    <a class="navbar-brand" href={% url 'login' %}>Login</a>
+                    <a class="navbar-brand" href={% url 'registrarse' %}>Registrarse</a>
+                {% endif %}
             </div>
         </nav>
         <!-- Masthead-->
@@ -35,7 +40,11 @@
                             <div class="text-center text-white">
                             <!-- Page heading-->
                             {% block header_text_block %}
-                                        <h1 class="mb-5">Bienvenidos a nuestra pagina de inicio!</h1>
+                            {% if msj %}
+                                {{msj}}
+                            {% else %}
+                                <h1 class="mb-5">Bienvenidos a nuestra pagina de inicio!</h1>
+                            {% endif %}
                             {% endblock header_text_block %} 
                             </div>
                         </div>
