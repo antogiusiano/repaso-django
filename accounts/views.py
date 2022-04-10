@@ -82,3 +82,7 @@ def editar_usuario(request):
         }
     )
     return render(request, 'accounts/editar_usuario.html', {'form': form})
+
+@login_required
+def usuario_datos(request):
+    return render(request, 'accounts/usuario_datos.html',{})
