@@ -14,7 +14,7 @@ def crear_cerrajero(request):
          
          if form.is_valid():
             data = form.cleaned_data
-            cerrajero = Cerrajero(nombre=data['nombre'],apellido=data['apellido'], desempleado=data['desempleado'])
+            cerrajero = Cerrajero(nombre=data['nombre'],apellido=data['apellido'], desempleado=data['desempleado'], tarjeta_presentacion=data['tarjeta_presentacion'])
             cerrajero.save()
             # return render(request, 'index/plantilla.html',{})
             # return redirect('plantilla')
